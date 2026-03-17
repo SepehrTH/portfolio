@@ -2,7 +2,12 @@
 import { motion, useScroll, useTransform } from "motion/react"
 
 export default function Hero() {
+    const { scrollY } = useScroll()
+    const bgScale = useTransform(scrollY, [0, 600], [1, 0.8])
+    const bgOpacity = useTransform(scrollY, [0, 400], [0.9, 0])
+
     return (
+        <>
         <section className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
             {/* <div style={{
                 position: "absolute", top: "-20%", left: "-10%",
@@ -16,13 +21,14 @@ export default function Hero() {
                 background: "radial-gradient(ellipse at center, rgba(80,160,255,0.40) 0%, transparent 70%)",
                 animation: "drift2 10s ease-in-out infinite",
             }} /> */}
-            <div style={{
+            <motion.div style={{
                 position: "absolute",
                 WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
                 maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
                 overflow: "hidden",
                 backgroundRepeat: "no-repeat",
-                opacity: 0.9,
+                opacity: bgOpacity,
+                scale: bgScale,
                 inset: 0,
                 backgroundImage: "url('/neb.png')",
                 backgroundSize: "cover",
@@ -57,5 +63,7 @@ export default function Hero() {
                 </a>
             </motion.div>
         </section>
+        <div style={{ height: "200vh" }} />
+        </>
     )
 }
