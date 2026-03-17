@@ -63,7 +63,6 @@ export default function Hero() {
                 </a>
             </motion.div>
         </section>
-        <div style={{ height: "200vh" }} />
         </>
     )
 }
