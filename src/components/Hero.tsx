@@ -7,7 +7,6 @@ export default function Hero() {
     const bgOpacity = useTransform(scrollY, [0, 400], [0.9, 0])
 
     return (
-        <>
         <section className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
             {/* <div style={{
                 position: "absolute", top: "-20%", left: "-10%",
@@ -35,7 +34,7 @@ export default function Hero() {
                 // backgroundPosition: "center",
             }} />
 
-            <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(4rem, 13vw, 7rem)" }} className="italic text-white z-10">
+            <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9, ease: "easeOut" }} style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(4rem, 13vw, 7rem)" }} className="italic text-white z-10">
                 Sepehr
             </motion.h1>
 
@@ -55,14 +54,13 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
             >    
-                <a className="rounded-full px-5 py-3 text-sm border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)]">
+                <a className="rounded-full px-5 py-3 text-sm border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)] transition-colors duration-300">
                     See Works
                 </a>
-                <a className="rounded-full px-5 py-3 text-sm flex border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)]">
+                <a className="rounded-full px-5 py-3 text-sm flex border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)] transition-colors duration-300">
                     Reach Out
                 </a>
             </motion.div>
         </section>
-        </>
     )
 }

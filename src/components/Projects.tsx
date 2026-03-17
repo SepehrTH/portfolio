@@ -28,7 +28,7 @@ export default function Projects() {
             style={{ backgroundColor: "#050508", fontFamily: "var(--font-outfit)" }}
             className="min-h-screen w-full flex flex-col justify-center px-6 py-20 md:px-12"
         >
-            <div className="max-w-3xl mx-auto w-full">
+            <div className="max-w-4xl mx-auto w-full">
 
                 {/* Header */}
                 <motion.div
@@ -38,12 +38,15 @@ export default function Projects() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    <p
-                        style={{ color: "rgba(240,237,232,0.3)", letterSpacing: "0.2em" }}
-                        className="text-xs uppercase mb-3"
-                    >
-                        Selected Work
-                    </p>
+                    <div className="flex items-center gap-5 mb-4">
+                        <p
+                            style={{ color: "rgba(240,237,232,0.3)", letterSpacing: "0.2em" }}
+                            className="text-xs uppercase shrink-0"
+                        >
+                            Selected Work
+                        </p>
+                        <div style={{ borderColor: "rgba(240,237,232,0.1)" }} className="flex-1 border-t" />
+                    </div>
                     <h2
                         style={{ fontFamily: "var(--font-playfair)", color: "#f0ede8" }}
                         className="text-4xl italic"
@@ -69,12 +72,13 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-start gap-6 py-8 cursor-pointer"
+                        className="group flex items-start gap-6 py-8 cursor-pointer will-change-transform"
                         style={{ borderBottom: "1px solid rgba(240,237,232,0.1)" }}
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
                         viewport={{ once: true }}
+                        whileHover={{ x: 6 }}
                     >
                         {/* Number */}
                         <span
