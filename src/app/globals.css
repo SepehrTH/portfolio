@@ -26,3 +26,18 @@ body {
   0%, 100% { opacity: 0.3; transform: scale(1) translate(0, 0); }
   50% { opacity: 0.6; transform: scale(1.05) translate(15px, -20px); }
 }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.55; }
+}
+
+@keyframes twinkle-bright {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes twinkle-dim {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.3; }
+}

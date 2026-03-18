@@ -54,10 +54,10 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
             >    
-                <a className="rounded-full px-5 py-3 text-sm border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)] transition-colors duration-300">
-                    See Works
+                <a href="#work" className="rounded-full px-5 py-3 text-sm border border-[rgba(240,237,232,0.4)] hover:bg-[rgba(240,237,232,0.1)] transition-colors duration-300 bg-gray-100 text-black">
+                    See My Work
                 </a>
-                <a className="rounded-full px-5 py-3 text-sm flex border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)] transition-colors duration-300">
+                <a href="mailto:sepehrth85@gmail.com" className="rounded-full px-5 py-3 text-sm flex border border-[rgba(240,237,232,0.4)] text-white hover:bg-[rgba(240,237,232,0.1)] transition-colors duration-300">
                     Reach Out
                 </a>
             </motion.div>

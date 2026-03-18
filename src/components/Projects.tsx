@@ -25,6 +25,7 @@ const projects = [
 export default function Projects() {
     return (
         <section
+            id="work"
             style={{ backgroundColor: "#050508", fontFamily: "var(--font-outfit)" }}
             className="min-h-screen w-full flex flex-col justify-center px-6 py-20 md:px-12"
         >

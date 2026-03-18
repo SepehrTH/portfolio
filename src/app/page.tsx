@@ -8,7 +8,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
-      {/* <h1 style={{ fontFamily: "var(--font-playfair)" }}>Sepehr</h1> */}
     </>
   );
 }
