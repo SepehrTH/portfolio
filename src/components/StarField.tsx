@@ -31,10 +31,23 @@ export default function StarField({ count = 160 }: { count?: number }) {
     }, [count])
 
     return (
+        
         <div
             style={{ position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none", overflow: "hidden" }}
             aria-hidden="true"
         >
+            {/* <div style={{
+                position: "absolute", top: "-20%", left: "-10%",
+                width: "60vw", height: "60vw", borderRadius: "9999px",
+                background: "radial-gradient(ellipse at center, rgba(14,100,233,0.30) 0%, transparent 70%)",
+                animation: "drift 8s ease-in-out infinite",
+            }} />
+            <div style={{
+                position: "absolute", bottom: "-20%", right: "-10%",
+                width: "50vw", height: "50vw", borderRadius: "9999px",
+                background: "radial-gradient(ellipse at center, rgba(80,160,255,0.30) 0%, transparent 70%)",
+                animation: "drift2 10s ease-in-out infinite",
+            }} /> */}
             {stars.map((star) => (
                 <div
                     key={star.id}

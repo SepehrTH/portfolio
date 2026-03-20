@@ -1,10 +1,16 @@
 "use client"
-import { useEffect, useRef } from "react"
-import { motion } from "motion/react"
+import { useEffect, useRef, useState } from "react"
+import { motion, useAnimation } from "motion/react"
 import Link from "next/link"
 
 export default function AboutPage() {
     const audioRef = useRef<HTMLAudioElement | null>(null)
+    const [skipped, setSkipped] = useState(false)
+    const scrollControls = useAnimation()
+
+    useEffect(() => {
+        scrollControls.start({ y: 0, transition: { duration: 22, ease: "linear" } })
+    }, [scrollControls])
 
     useEffect(() => {
         const audio = new Audio("/about_soundtrack.mp3")
@@ -19,6 +25,13 @@ export default function AboutPage() {
         }
     }, [])
 
+    function skip() {
+        audioRef.current?.pause()
+        scrollControls.stop()
+        scrollControls.start({ y: 0, transition: { duration: 0.8, ease: "easeOut" } })
+        setSkipped(true)
+    }
+
     return (
         // overflow-hidden clips content while it's below the fold during PageTransition fade-in
         <div className="fixed inset-0 overflow-hidden flex items-center justify-center">
@@ -28,7 +41,7 @@ export default function AboutPage() {
                 className="fixed top-8 left-8 z-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 20, duration: 3 }}
+                transition={{ delay: skipped ? 0.8 : 20, duration: 1 }}
             >
                 <Link
                     href="/"
@@ -44,27 +57,49 @@ export default function AboutPage() {
                 </Link>
             </motion.div>
 
+            {/* Skip button */}
+            {!skipped && (
+                <motion.button
+                    className="fixed bottom-8 right-8 z-10 uppercase text-amber-300"
+                    style={{
+                        fontFamily: "var(--font-outfit)",
+                        // color: "rgba(240,237,232,0.3)",
+                        fontSize: "0.75rem",
+                        letterSpacing: "0.2em",
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 1 }}
+                    onClick={skip}
+                    onMouseEnter={e => (e.currentTarget.style.color = "rgba(240,237,232,0.8)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(240,237,232,0.3)")}
+                >
+                    enough of this →
+                </motion.button>
+            )}
+
             {/* "A long time ago..." — fades in, holds, fades out before content arrives */}
-            <motion.p
-                className="absolute text-center px-8 pointer-events-none"
-                style={{
-                    fontFamily: "var(--font-outfit)",
-                    fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
-                    color: "#4db8ff",
-                    letterSpacing: "0.04em",
-                }}
-                animate={{ opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 6, times: [0, 0.15, 0.7, 1], ease: "easeInOut" }}
-            >
-                A long time ago in a galaxy far, far away....
-            </motion.p>
+            {!skipped && (
+                <motion.p
+                    className="absolute text-center px-8 pointer-events-none"
+                    style={{
+                        fontFamily: "var(--font-outfit)",
+                        fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+                        color: "#4db8ff",
+                        letterSpacing: "0.04em",
+                    }}
+                    animate={{ opacity: [0, 1, 1, 0] }}
+                    transition={{ duration: 6, times: [0, 0.15, 0.7, 1], ease: "easeInOut" }}
+                >
+                    A long time ago in a galaxy far, far away....
+                </motion.p>
+            )}
 
             {/* Star Wars scroll — starts below, stops centered */}
             <motion.div
                 className="w-full max-w-xl px-10 text-center"
                 initial={{ y: "110vh" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 22, ease: "linear" }}
+                animate={scrollControls}
             >
                 <p
                     style={{
@@ -102,9 +137,9 @@ export default function AboutPage() {
                 <div
                     style={{
                         fontFamily: "var(--font-outfit)",
-                        color: "rgba(240,237,232,0.6)",
-                        fontSize: "1rem",
-                        lineHeight: "1.9",
+                        // color: "rgba(240,237,232,0.6)",
+                        fontSize: "1.1rem",
+                        lineHeight: "1.3",
                     }}
                     className="space-y-8 text-white"
                 >
