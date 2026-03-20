@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google"
 import StarField from "@/components/StarField"
+import PageTransition from "@/components/PageTransition"
 
 import "./globals.css";
 
@@ -30,7 +31,7 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${outfit.variable}`}>
       <body>
         <StarField />
-        {children}
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
