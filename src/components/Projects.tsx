@@ -3,22 +3,10 @@ import { motion } from "motion/react"
 
 const projects = [
     {
-        name: "Aether",
-        description: "A real-time collaborative whiteboard with multiplayer cursors and infinite canvas.",
-        tags: ["Next.js", "WebSockets", "Canvas API", "Redis"],
-        github: "https://github.com/sepehr/aether",
-    },
-    {
         name: "Luminary",
         description: "An AI-powered journaling app that surfaces patterns and insights from your entries.",
         tags: ["React", "Python", "FastAPI", "OpenAI"],
         github: "https://github.com/sepehr/luminary",
-    },
-    {
-        name: "Orbit",
-        description: "Minimal personal finance tracker with clean data visualizations and CSV import.",
-        tags: ["SvelteKit", "D3.js", "PostgreSQL", "Drizzle"],
-        github: "https://github.com/sepehr/orbit",
     },
 ]
 
