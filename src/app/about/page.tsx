@@ -38,10 +38,10 @@ export default function AboutPage() {
 
             {/* Back button */}
             <motion.div
-                className="fixed top-8 left-8 z-10"
-                initial={{ opacity: 0 }}
+                className="fixed top-8 left-8 z-10 text-white"
+                initial={{ opacity: 0.8 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: skipped ? 0.8 : 20, duration: 1 }}
+                transition={{ delay: skipped ? 0 : 20, duration: 1 }}
             >
                 <Link
                     href="/"
@@ -51,7 +51,7 @@ export default function AboutPage() {
                         fontSize: "0.8rem",
                         letterSpacing: "0.15em",
                     }}
-                    className="uppercase hover:text-white transition-colors duration-300"
+                    className="uppercase text-white transition-colors duration-300 z-20"
                 >
                     ← Back
                 </Link>
