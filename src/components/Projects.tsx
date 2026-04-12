@@ -3,11 +3,12 @@ import { motion } from "motion/react"
 
 const projects = [
     {
-        name: "Luminary",
-        description: "An AI-powered journaling app that surfaces patterns and insights from your entries.",
-        tags: ["React", "Python", "FastAPI", "OpenAI"],
-        github: "https://github.com/sepehr/luminary",
+        name: "CalIntern",
+        description: "Local AI planning assistant — connects to Google Calendar and lets you manage your schedule through natural conversation. Built on a multi-turn agentic loop where a local LLM reads your calendar, reasons over availability, and writes events. All local, no cloud.",
+        tags: ["React", "Express", "Ollama", "Claude Code"],
+        github: "https://github.com/SepehrTH/calintern",
     },
+    
 ]
 
 export default function Projects() {
