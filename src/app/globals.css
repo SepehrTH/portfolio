@@ -42,3 +42,13 @@ body {
   50% { opacity: 0.3; }
 }
 
+
+/* Hide the scrollbar on the navbar's overflow container (fallback for very narrow screens) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

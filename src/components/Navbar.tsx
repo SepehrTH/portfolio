@@ -11,8 +11,8 @@ const links = [
 
 export default function Navbar() {
     return (
-        <nav style={{ fontFamily: "var(--font-outfit)" }} className="fixed top-6 rounded-full left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 py-2 px-2 bg-[rgba(10,10,16,0.55)] backdrop-blur-[20px] border border-solid border-[#F0EDE8]/10">
-            <Link href="#" style={{ fontFamily: "var(--font-playfair)" }} className="w-8 h-8 rounded-full flex items-center justify-center border border-[rgba(240,237,232,0.15)] italic text-white hover:bg-[rgba(240,237,232,0.08)] transition-colors duration-200">
+        <nav style={{ fontFamily: "var(--font-outfit)" }} className="fixed top-4 sm:top-6 rounded-full left-1/2 -translate-x-1/2 z-50 flex items-center gap-0 sm:gap-1 py-2 px-2 max-w-[calc(100vw-1.5rem)] overflow-x-auto no-scrollbar bg-[rgba(10,10,16,0.55)] backdrop-blur-[20px] border border-solid border-[#F0EDE8]/10">
+            <Link href="/" style={{ fontFamily: "var(--font-playfair)" }} className="hidden sm:flex w-8 h-8 rounded-full shrink-0 items-center justify-center border border-[rgba(240,237,232,0.15)] italic text-white hover:bg-[rgba(240,237,232,0.08)] transition-colors duration-200">
                 ST
             </Link>
 
@@ -21,7 +21,7 @@ export default function Navbar() {
                     key={label}
                     href={href}
                     {...(external && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="text-sm text-[rgba(240,237,232,0.55)] hover:text-white px-4 transition-colors duration-200"
+                    className="text-xs sm:text-sm text-[rgba(240,237,232,0.55)] hover:text-white px-2.5 sm:px-4 shrink-0 whitespace-nowrap transition-colors duration-200"
                 >
                     {label}
                 </Link>
